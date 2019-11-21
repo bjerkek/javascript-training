@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Asynchronous JavaScript</title>
+</head>
+<body>
+  <h1>Asynchronous JavaScript</h1>
+  <script>
+    const getIDs = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve([312, 245, 433, 908])
+      }, 1500)
+    })
+
+    const getRecipe = recipeId => {
+      return new Promise((resolve, reject) => {
+        setTimeout(ID => {
+          const recipe = {
+            title: 'Fresh tomato soup',
+            publisher: 'Peter'
+          }
+          resolve(recipe)
+        }, 1500, recipeId)
+      })
+    }
+
+    const getRelated = publisher => {
+      return new Promise((resolve, reject) => {
+        setTimeout(pub => {
+          const recipe = {
+            title: 'Pizza',
+            publisher: 'Lisa'
+          }
+          resolve(`${pub}: ${recipe.title}`)
+        }, 1500, publisher)
+      })
+    }
+
+    getIDs
+    .then(IDs => {
+      console.log(IDs)
+      return getRecipe(IDs[2])
+    })
+    .then(recipe => {
+      console.log(recipe)
+      return getRelated(recipe.publisher)
+    })
+    .then(recipe => {
+      console.log(recipe)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  </script>
+</body>
+</html>

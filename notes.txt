@@ -1,0 +1,10 @@
+#Pure functions
+
+A pure function is a function which:
+1. Given the same input, always return the same output
+2. No side-effects
+
+##Mapping
+
+
+
