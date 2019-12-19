@@ -12,3 +12,21 @@ const totalDamageOnDorkman = dragonEvent
   .reduce((damage, obj) => damage + obj.value, 0)
 
 console.log(totalDamageOnDorkman)
+
+
+function _add(a, b=3) {
+  const total = a + b
+  return total
+}
+
+const add = (a, b=3) => a + b
+
+function _makeABaby(first, last) {
+  const baby = {
+    name: `${first} ${last}`,
+    age: 0
+  }
+  return baby
+}
+
+const makeABaby = (first, last) => ({ name: `${first} ${last}`, age: 0 })
